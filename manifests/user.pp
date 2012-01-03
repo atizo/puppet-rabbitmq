@@ -30,5 +30,6 @@ define rabbitmq::user(
     conf => $conf,
     read => $read,
     write => $write,
+    require => Exec["rabbitmqctl-user-$name"],
   }
 }
