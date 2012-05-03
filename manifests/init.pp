@@ -25,8 +25,8 @@ class rabbitmq {
     require => Package['rabbitmq-server'],
   }
   if $lsbmajdistrelease == 6 {
-    package{'qpid-cpp-server':
-      ensure => absent,
+    service{'qpidd':
+      ensure => stopped,
       before => Service['rabbitmq-server'],
     }
   }
